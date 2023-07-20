@@ -16,7 +16,27 @@
         }
 
         // the winnning logic
+        function winner (playerSelection, computerSelection) {
+            if (playerSelection == computerSelection) {
+                alert ("It's a tie!");
+            }
+            else if (computerSelection == playerSelection + 1) {
+                alert ("You won!");
+            }
+            else if (computerSelection == playerSelection - 1) {
+                alert ("You lost!");
+            }
+            else if (playerSelection == computerSelection + 1) {
+                alert ("Computer won!");
+            }
+            else if (computerSelection != playerSelection - 1) {
+                alert ("Computer won!");
+            }
+            else if (playerSelection != computerSelection - 1) {
+                alert ("You won!");
+            }
 
+        }
         // get users input `
         let getUserInput = prompt ("Choose your Worrior \n Rock \n Paper \n Scissors");
         getUserInput = getUserInput.toLowerCase();
@@ -34,10 +54,11 @@
             userChoice = 2;
         }
 
-        alert ("you chose " + worriors[userChoice] + "\n" + "computer chose " + worriors[computerChoice]);
+        console.log ("you chose " + worriors[userChoice] + "\n" + "computer chose " + worriors[computerChoice]);
 
         // compare the number to the computers `choice
         // declare winner if any or declare tie` 
+        winner (userChoice, computerChoice);
 
     </script>
 </head>
