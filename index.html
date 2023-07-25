@@ -18,25 +18,22 @@
         // the winnning logic
         function winner (playerSelection, computerSelection) {
             if (playerSelection == computerSelection) {
-                alert ("It's a tie!");
+                alert ("Its a tie");
             }
             else if (computerSelection == playerSelection + 1) {
-                alert ("You won!");
-            }
-            else if (computerSelection == playerSelection - 1) {
-                alert ("You lost!");
+                alert ("you won!")
             }
             else if (playerSelection == computerSelection + 1) {
-                alert ("Computer won!");
+                alert ("computer won!")
             }
-            else if (computerSelection != playerSelection - 1) {
-                alert ("Computer won!");
+            else if (playerSelection == 2 && computerSelection != 1) {
+                alert ("you won!")            
             }
-            else if (playerSelection != computerSelection - 1) {
-                alert ("You won!");
+            else if (computerSelection == 2 && playerSelection != 1) {
+                alert ("Computer won!")
             }
-
         }
+            
         // get users input `
         let getUserInput = prompt ("Choose your Worrior \n Rock \n Paper \n Scissors");
         getUserInput = getUserInput.toLowerCase();
