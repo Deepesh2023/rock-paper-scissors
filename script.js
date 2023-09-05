@@ -27,23 +27,41 @@ function winner(playerSelection, computerSelection) {
   }
 }
 
+// selecting the worrior
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
 // get users input `
-let getUserInput = prompt("Choose your Worrior \n Rock \n Paper \n Scissors");
-getUserInput = getUserInput.toLowerCase();
-let computerChoice = getComputerChoice();
+// let getUserInput;
+// prompt("Choose your Worrior \n Rock \n Paper \n Scissors");
+// getUserInput = getUserInput.toLowerCase();
 let userChoice;
+let computerChoice = getComputerChoice();
+
+rock.addEventListener("click", () => {
+  userChoice = 0;
+  winner(userChoice, computerChoice);
+});
+scissors.addEventListener("click", () => {
+  userChoice = 1;
+  winner(userChoice, computerChoice);
+});
+paper.addEventListener("click", () => {
+  userChoice = 2;
+  winner(userChoice, computerChoice);
+});
 
 // compare it to the array and get the `number-
-if (getUserInput == worriors[0]) {
-  userChoice = 0;
-} else if (getUserInput == worriors[1]) {
-  userChoice = 1;
-} else if (getUserInput == worriors[2]) {
-  userChoice = 2;
-}
+// if (getUserInput == worriors[0]) {
+//   userChoice = 0;
+// } else if (getUserInput == worriors[1]) {
+//   userChoice = 1;
+// } else if (getUserInput == worriors[2]) {
+//   userChoice = 2;
+// }
 
 // console.log ("you chose " + worriors[userChoice] + "\n" + "computer chose " + worriors[computerChoice]);
 
 // compare the number to the computers `choice
 // declare winner if any or declare tie`
-winner(userChoice, computerChoice);
