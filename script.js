@@ -28,9 +28,10 @@ function getComputerChoice() {
 // }
 
 // displaying the choices
-function choiceDisplay(playerSelection, computerSelection) {
-  player.textContent = playerSelection;
-  computer.textContent = computerSelection;
+function choiceDisplay() {
+  player.appendChild(images[userChoice]);
+  computer.appendChild(images[computerChoice]);
+  return;
 }
 
 const display = document.querySelector(".display");
@@ -42,21 +43,35 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
+const rockImage = document.createElement("img");
+const paperImage = document.createElement("img");
+const scissorsImage = document.createElement("img");
+
+const images = [rockImage, scissorsImage, paperImage];
+
+rockImage.src = "icons/rock.svg";
+paperImage.src = "icons/paper.svg";
+scissorsImage.src = "icons/scissors.svg";
+
+rockImage.alt = "rock";
+paperImage.alt = "paper";
+scissorsImage.alt = "scissors";
+
 let userChoice;
 let computerChoice = getComputerChoice();
 
 rock.addEventListener("click", () => {
   userChoice = 0;
-  choiceDisplay(worriors[userChoice], worriors[computerChoice]);
+  choiceDisplay(userChoice, computerChoice);
   // winner(userChoice, computerChoice);
 });
 scissors.addEventListener("click", () => {
   userChoice = 1;
-  choiceDisplay(worriors[userChoice], worriors[computerChoice]);
+  choiceDisplay(userChoice, computerChoice);
   // winner(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
   userChoice = 2;
-  choiceDisplay(worriors[userChoice], worriors[computerChoice]);
+  choiceDisplay(userChoice, computerChoice);
   // winner(userChoice, computerChoice);
 });

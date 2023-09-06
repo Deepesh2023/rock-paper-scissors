@@ -35,11 +35,24 @@ body {
   gap: 8px;
 }
 
+.player,
+.computer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .display div {
   height: 60%;
   width: 100%;
-  text-align: center;
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display div img {
+  height: 56px;
+  width: auto;
 }
 
 .controls {
