@@ -28,10 +28,18 @@ function getComputerChoice() {
 // }
 
 // displaying the choices
-function choiceDisplay() {
+function choiceDisplay(userChoice, computerChoice) {
   player.appendChild(images[userChoice]);
-  computer.appendChild(images[computerChoice]);
-  return;
+  computer.appendChild(images2[computerChoice]);
+
+  setTimeout(timer, 5000);
+
+  // player.removeChild(images[userChoice]);
+}
+
+function timer() {
+  player.removeChild(images[userChoice]);
+  computer.removeChild(images2[computerChoice]);
 }
 
 const display = document.querySelector(".display");
@@ -42,36 +50,53 @@ const computer = document.querySelector(".computer");
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const reset = document.querySelector(".reset button");
 
 const rockImage = document.createElement("img");
 const paperImage = document.createElement("img");
 const scissorsImage = document.createElement("img");
 
-const images = [rockImage, scissorsImage, paperImage];
+const rockImage2 = document.createElement("img");
+const paperImage2 = document.createElement("img");
+const scissorsImage2 = document.createElement("img");
 
 rockImage.src = "icons/rock.svg";
 paperImage.src = "icons/paper.svg";
 scissorsImage.src = "icons/scissors.svg";
 
+rockImage2.src = "icons/rock.svg";
+paperImage2.src = "icons/paper.svg";
+scissorsImage2.src = "icons/scissors.svg";
+
 rockImage.alt = "rock";
 paperImage.alt = "paper";
 scissorsImage.alt = "scissors";
 
+rockImage2.alt = "rock";
+paperImage2.alt = "paper";
+scissorsImage2.alt = "scissors";
+
+const images = [rockImage, scissorsImage, paperImage];
+const images2 = [rockImage2, scissorsImage2, paperImage2];
+
 let userChoice;
 let computerChoice = getComputerChoice();
+
+// console.log(userChoice, computerChoice);
 
 rock.addEventListener("click", () => {
   userChoice = 0;
   choiceDisplay(userChoice, computerChoice);
-  // winner(userChoice, computerChoice);
 });
 scissors.addEventListener("click", () => {
   userChoice = 1;
   choiceDisplay(userChoice, computerChoice);
-  // winner(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
   userChoice = 2;
   choiceDisplay(userChoice, computerChoice);
-  // winner(userChoice, computerChoice);
+});
+
+reset.addEventListener("click", () => {
+  window.location.reload();
 });
