@@ -37,14 +37,24 @@ body {
 
 .player,
 .computer {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.display div {
-  height: 60%;
+.playerScore,
+.computerScore {
   width: 100%;
+  height: 36px;
+}
+
+.player .image,
+.computer .image {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,44 +7,39 @@ function getComputerChoice() {
   return randomNumber;
 }
 
-// the winnning logic
-// function winner(playerSelection, computerSelection) {
-//   result = function (winner, loser) {
-//     result = worriors[winner] + " beats " + worriors[loser];
-//     return result;
-//   };
-
-//   if (playerSelection == computerSelection) {
-//     alert("Its a tie");
-//   } else if (computerSelection == playerSelection + 1) {
-//     alert("you won! " + result(playerSelection, computerSelection));
-//   } else if (playerSelection == computerSelection + 1) {
-//     alert("You lose! " + result(computerChoice, playerSelection));
-//   } else if (playerSelection == 2 && computerSelection != 1) {
-//     alert("you won! " + result(playerSelection, computerSelection));
-//   } else if (computerSelection == 2 && playerSelection != 1) {
-//     alert("You lose! " + result(computerSelection, playerSelection));
-//   }
-// }
+//  the winnning logic
+function winner(playerSelection, computerSelection) {
+  if (playerSelection == computerSelection) {
+    //  alert("Its a tie");
+  } else if (computerSelection == playerSelection + 1) {
+    //  alert("you won! " + result(playerSelection, computerSelection));
+  } else if (playerSelection == computerSelection + 1) {
+    // alert("You lose! " + result(computerChoice, playerSelection));
+  } else if (playerSelection == 2 && computerSelection != 1) {
+    // alert("you won! " + result(playerSelection, computerSelection));
+  } else if (computerSelection == 2 && playerSelection != 1) {
+    // alert("You lose! " + result(computerSelection, playerSelection));
+  }
+}
 
 // displaying the choices
 function choiceDisplay(userChoice, computerChoice) {
   player.appendChild(images[userChoice]);
   computer.appendChild(images2[computerChoice]);
 
-  setTimeout(timer, 5000);
+  setTimeout(rmoveImage, 2000);
 
   // player.removeChild(images[userChoice]);
 }
 
-function timer() {
+function rmoveImage() {
   player.removeChild(images[userChoice]);
   computer.removeChild(images2[computerChoice]);
 }
 
 const display = document.querySelector(".display");
-const player = document.querySelector(".player");
-const computer = document.querySelector(".computer");
+const player = document.querySelector(".player .image");
+const computer = document.querySelector(".computer .image");
 
 // selecting the worrior
 const rock = document.querySelector(".rock");
@@ -80,20 +75,24 @@ const images = [rockImage, scissorsImage, paperImage];
 const images2 = [rockImage2, scissorsImage2, paperImage2];
 
 let userChoice;
-let computerChoice = getComputerChoice();
+let computerChoice;
 
 // console.log(userChoice, computerChoice);
 
 rock.addEventListener("click", () => {
   userChoice = 0;
+  computerChoice = getComputerChoice();
   choiceDisplay(userChoice, computerChoice);
+  winner(userChoice, computerChoice);
 });
 scissors.addEventListener("click", () => {
   userChoice = 1;
+  computerChoice = getComputerChoice();
   choiceDisplay(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
   userChoice = 2;
+  computerChoice = getComputerChoice();
   choiceDisplay(userChoice, computerChoice);
 });
 
