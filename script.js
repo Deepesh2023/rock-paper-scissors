@@ -1,5 +1,5 @@
 // make an array
-let worriors = ["rock", "scissors", "paper"];
+const worriors = ["rock", "scissors", "paper"];
 
 // choose a random number for computer `
 function getComputerChoice() {
@@ -10,15 +10,32 @@ function getComputerChoice() {
 //  the winnning logic
 function winner(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    //  alert("Its a tie");
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (computerSelection == playerSelection + 1) {
-    //  alert("you won! " + result(playerSelection, computerSelection));
+    // alert("you won!");
+    userScore++;
+    computerScore--;
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == computerSelection + 1) {
-    // alert("You lose! " + result(computerChoice, playerSelection));
+    // alert("You lose!")
+    userScore--;
+    computerScore++;
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 2 && computerSelection != 1) {
-    // alert("you won! " + result(playerSelection, computerSelection));
+    // alert("you won!");
+    userScore++;
+    computerScore--;
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
   } else if (computerSelection == 2 && playerSelection != 1) {
-    // alert("You lose! " + result(computerSelection, playerSelection));
+    userScore--;
+    computerScore++;
+    // alert("You lose!");
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
   }
 }
 
@@ -41,7 +58,6 @@ const display = document.querySelector(".display");
 const player = document.querySelector(".player .image");
 const computer = document.querySelector(".computer .image");
 
-// selecting the worrior
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
@@ -77,7 +93,11 @@ const images2 = [rockImage2, scissorsImage2, paperImage2];
 let userChoice;
 let computerChoice;
 
-// console.log(userChoice, computerChoice);
+let userScore = 0;
+let computerScore = 0;
+
+const userScoreDisplay = document.querySelector(".playerScore");
+const computerScoreDisplay = document.querySelector(".computerScore");
 
 rock.addEventListener("click", () => {
   userChoice = 0;
@@ -89,12 +109,17 @@ scissors.addEventListener("click", () => {
   userChoice = 1;
   computerChoice = getComputerChoice();
   choiceDisplay(userChoice, computerChoice);
+  winner(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
   userChoice = 2;
   computerChoice = getComputerChoice();
   choiceDisplay(userChoice, computerChoice);
+  winner(userChoice, computerChoice);
 });
+
+userScoreDisplay.textContent = userScore;
+computerScoreDisplay.textContent = computerScore;
 
 reset.addEventListener("click", () => {
   window.location.reload();
