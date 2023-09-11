@@ -13,41 +13,58 @@ function winner(playerSelection, computerSelection) {
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
   } else if (computerSelection == playerSelection + 1) {
-    // alert("you won!");
+    // the user wins
+    sounds[playerSelection].play();
     userScore++;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
+    scoreCheck(userScore, computerScore);
   } else if (playerSelection == computerSelection + 1) {
-    // alert("You lose!")
+    // the computer wins
+    sounds[computerSelection].play();
     computerScore++;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
+    scoreCheck(userScore, computerScore);
   } else if (playerSelection == 2 && computerSelection != 1) {
-    // alert("you won!");
+    // the user wins
+    sounds[playerSelection].play();
     userScore++;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
+    scoreCheck(userScore, computerScore);
   } else if (computerSelection == 2 && playerSelection != 1) {
+    //  the computer wins
+    sounds[computerSelection].play();
     computerScore++;
-    // alert("You lose!");
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
+    scoreCheck(userScore, computerScore);
   }
 }
-
 // displaying the choices
 function choiceDisplay(userChoice, computerChoice) {
   player.appendChild(images[userChoice]);
   computer.appendChild(images2[computerChoice]);
 
   setTimeout(rmoveImage, 2000);
-
-  // player.removeChild(images[userChoice]);
 }
 
 function rmoveImage() {
   player.removeChild(images[userChoice]);
   computer.removeChild(images2[computerChoice]);
+}
+
+function scoreCheck(userScore, computerScore) {
+  if (userScore == 5) {
+    gameWon.play();
+    alert("You Won!");
+    window.location.reload();
+  } else if (computerScore == 5) {
+    gameOver.play();
+    alert("You lose!");
+    window.location.reload();
+  }
 }
 
 const display = document.querySelector(".display");
@@ -83,8 +100,15 @@ rockImage2.alt = "rock";
 paperImage2.alt = "paper";
 scissorsImage2.alt = "scissors";
 
+const scissorsSound = new Audio("/audio/scissors-cutting-paper-1-101193.mp3");
+const rockSound = new Audio("/audio/rock-destroy-6409.mp3");
+const paperSound = new Audio("/audio/crumple-03-40747.mp3");
+gameOver = new Audio("/audio/negative_beeps-6008.mp3");
+gameWon = new Audio("/audio/success-fanfare-trumpets-6185.mp3");
+
 const images = [rockImage, scissorsImage, paperImage];
 const images2 = [rockImage2, scissorsImage2, paperImage2];
+const sounds = [rockSound, scissorsSound, paperSound];
 
 let userChoice;
 let computerChoice;
