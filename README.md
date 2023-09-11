@@ -1,6 +1,9 @@
 # rock-paper-scissors
 
-My first javascript program to test my knowledge in varibles, arrays, inbuilt functions and conditional logic.
+My first javascript program to test my knowledge in varibles, arrays, inbuilt functions, conditional logic, DOM manipulation and event handlers.
+
+The game ends when any one of the players gets 5 points
+You are against the computer
 
 Visit https://deepesh2023.github.io/rock-paper-scissors/ for live preview.
 

@@ -100,11 +100,11 @@ rockImage2.alt = "rock";
 paperImage2.alt = "paper";
 scissorsImage2.alt = "scissors";
 
-const scissorsSound = new Audio("/audio/scissors-cutting-paper-1-101193.mp3");
-const rockSound = new Audio("/audio/rock-destroy-6409.mp3");
-const paperSound = new Audio("/audio/crumple-03-40747.mp3");
-gameOver = new Audio("/audio/negative_beeps-6008.mp3");
-gameWon = new Audio("/audio/success-fanfare-trumpets-6185.mp3");
+const scissorsSound = new Audio("audio/scissors-cutting-paper-1-101193.mp3");
+const rockSound = new Audio("audio/rock-destroy-6409.mp3");
+const paperSound = new Audio("audio/crumple-03-40747.mp3");
+gameOver = new Audio("audio/negative_beeps-6008.mp3");
+gameWon = new Audio("audio/success-fanfare-trumpets-6185.mp3");
 
 const images = [rockImage, scissorsImage, paperImage];
 const images2 = [rockImage2, scissorsImage2, paperImage2];
