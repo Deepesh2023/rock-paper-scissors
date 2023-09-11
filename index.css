@@ -19,7 +19,9 @@ body {
   height: 640px;
   width: 480px;
   padding: 24px;
-  box-shadow: 8px 8px #417163;
+  border-bottom: 16px solid #417163;
+  border-right: 16px solid #417163;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

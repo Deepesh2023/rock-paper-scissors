@@ -47,10 +47,10 @@ function choiceDisplay(userChoice, computerChoice) {
   player.appendChild(images[userChoice]);
   computer.appendChild(images2[computerChoice]);
 
-  setTimeout(rmoveImage, 2000);
+  setTimeout(removeImage, 2000);
 }
 
-function rmoveImage() {
+function removeImage() {
   player.removeChild(images[userChoice]);
   computer.removeChild(images2[computerChoice]);
 }
@@ -122,19 +122,19 @@ const computerScoreDisplay = document.querySelector(".computerScore");
 rock.addEventListener("click", () => {
   userChoice = 0;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChoice);
+  choiceDisplay(userChoice, computerChtoice);
   winner(userChoice, computerChoice);
 });
 scissors.addEventListener("click", () => {
   userChoice = 1;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChoice);
+  choiceDisplay(userChoice, computerChoicet);
   winner(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
   userChoice = 2;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChoice);
+  choiceDisplay(userChoice, computerChotice);
   winner(userChoice, computerChoice);
 });
 
