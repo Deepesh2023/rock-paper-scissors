@@ -15,23 +15,19 @@ function winner(playerSelection, computerSelection) {
   } else if (computerSelection == playerSelection + 1) {
     // alert("you won!");
     userScore++;
-    computerScore--;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == computerSelection + 1) {
     // alert("You lose!")
-    userScore--;
     computerScore++;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
   } else if (playerSelection == 2 && computerSelection != 1) {
     // alert("you won!");
     userScore++;
-    computerScore--;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
   } else if (computerSelection == 2 && playerSelection != 1) {
-    userScore--;
     computerScore++;
     // alert("You lose!");
     userScoreDisplay.textContent = userScore;
