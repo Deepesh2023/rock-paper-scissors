@@ -53,6 +53,8 @@ function choiceDisplay(userChoice, computerChoice) {
 function removeImage() {
   player.removeChild(images[userChoice]);
   computer.removeChild(images2[computerChoice]);
+
+  enableButtons();
 }
 
 function scoreCheck(userScore, computerScore) {
@@ -65,6 +67,18 @@ function scoreCheck(userScore, computerScore) {
     alert("You lose!");
     window.location.reload();
   }
+}
+
+function disableButtons() {
+  rock.disabled = true;
+  scissors.disabled = true;
+  paper.disabled = true;
+}
+
+function enableButtons() {
+  rock.disabled = false;
+  scissors.disabled = false;
+  paper.disabled = false;
 }
 
 const display = document.querySelector(".display");
@@ -120,21 +134,24 @@ const userScoreDisplay = document.querySelector(".playerScore");
 const computerScoreDisplay = document.querySelector(".computerScore");
 
 rock.addEventListener("click", () => {
+  disableButtons();
   userChoice = 0;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChtoice);
+  choiceDisplay(userChoice, computerChoice);
   winner(userChoice, computerChoice);
 });
 scissors.addEventListener("click", () => {
+  disableButtons();
   userChoice = 1;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChoicet);
+  choiceDisplay(userChoice, computerChoice);
   winner(userChoice, computerChoice);
 });
 paper.addEventListener("click", () => {
+  disableButtons();
   userChoice = 2;
   computerChoice = getComputerChoice();
-  choiceDisplay(userChoice, computerChotice);
+  choiceDisplay(userChoice, computerChoice);
   winner(userChoice, computerChoice);
 });
 
