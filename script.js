@@ -1,5 +1,6 @@
-// make an array
-const worriors = ["rock", "scissors", "paper"];
+// rock = 0
+// scissors = 1
+// paper = 2
 
 // choose a random number for computer `
 function getComputerChoice() {
@@ -16,13 +17,6 @@ function winner(playerSelection, computerSelection) {
     // the user wins
     sounds[playerSelection].play();
     userScore++;
-    userScoreDisplay.textContent = userScore;
-    computerScoreDisplay.textContent = computerScore;
-    scoreCheck(userScore, computerScore);
-  } else if (playerSelection == computerSelection + 1) {
-    // the computer wins
-    sounds[computerSelection].play();
-    computerScore++;
     userScoreDisplay.textContent = userScore;
     computerScoreDisplay.textContent = computerScore;
     scoreCheck(userScore, computerScore);
